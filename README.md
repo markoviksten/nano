@@ -26,40 +26,7 @@ cp env.example .env
 
 EDIT .env : add following to there (copy-paste / huom openai api key tarvitaan! rerank jina apikey free käytössä)
 
-AUTH_ACCOUNTS=admin:zadmin123,user1:zpass456
-WORKERS=3
-WORKER_TIMEOUT=180
-TIMEOUT=180
-EMBEDDING_BATCH_NUM=20 # oli 10 
-EMBEDDING_BINDING=openai
-EMBEDDING_BINDING_API_KEY=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
-EMBEDDING_BINDING_HOST=https://api.openai.com/v1
-EMBEDDING_DIM=1536
-EMBEDDING_FUNC_MAX_ASYNC=3    #oli 24, kokeile myös 5
-EMBEDDING_MODEL=text-embedding-3-small
-EMBEDDING_FUNC_TIMEOUT=300
-MAX_ASYNC_WORKERS=3
-LIGHTRAG_API_KEY=your-secure-api-key-here-marko
-LLM_BINDING=openai
-LLM_BINDING_API_KEY=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
-LLM_BINDING_HOST=https://api.openai.com/v1
-LLM_MODEL=gpt-4.1-nano
-MAX_ASYNC=6   #oli 12 
-MAX_PARALLEL_INSERT=3
-RERANK_BINDING_API_KEY=jina_e1691f3b27ee422b993677dfd10ce05dw7hpx78yohm2o5Jn1dQVjn5DBuTy
-RERANK_BINDING_HOST=https://api.jina.ai/v1/rerank
-RERANK_MODEL=jina-reranker-v2-base-multilingual
-SUMMARY_LANGUAGE=English
-EVAL_LLM_MAX_RETRIES=5
-EVAL_LLM_TIMEOUT=180
-VDB_TIMEOUT=240
-VDB_MAX_RETRIES=5
-MAX_CONCURRENT_EMBEDS=5
-VECTOR_CHUNK_SIZE=500
-VECTOR_CHUNK_OVERLAP=50
-OPENAI_TIMEOUT=120
-OPENAI_MAX_RETRIES=5
-
+env filu tähän kohtaan!
 
 (muista käynnistää podman koneellasi: sitten aja asennus)
 docker compose up -d
