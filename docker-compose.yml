@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   # ==================================================
-  # LightRAG Nano instanssit (5 kpl)
+  # LightRAG Nano instanssit (7 kpl)
   # ==================================================
 
   lightrag-nano-1:
@@ -90,6 +90,39 @@ services:
     extra_hosts: ["host.docker.internal:host-gateway"]
     networks: [stack-net]
 
+lightrag-nano-6:
+    image: ghcr.io/hkuds/lightrag:latest
+    container_name: lightrag-nano-6
+    ports: ["9626:9621"]
+    volumes:
+      - ./data/nano6/rag_storage:/app/data/rag_storage
+      - ./data/nano6/inputs:/app/data/inputs
+      - ./config.ini:/app/config.ini
+      - ./.env:/app/.env
+    env_file: [.env]
+    environment:
+      - INSTANCE_ID=nano-6
+    restart: unless-stopped
+    extra_hosts: ["host.docker.internal:host-gateway"]
+    networks: [stack-net]
+
+lightrag-nano-7:
+    image: ghcr.io/hkuds/lightrag:latest
+    container_name: lightrag-nano-7
+    ports: ["9627:9621"]
+    volumes:
+      - ./data/nano7/rag_storage:/app/data/rag_storage
+      - ./data/nano7/inputs:/app/data/inputs
+      - ./config.ini:/app/config.ini
+      - ./.env:/app/.env
+    env_file: [.env]
+    environment:
+      - INSTANCE_ID=nano-7
+    restart: unless-stopped
+    extra_hosts: ["host.docker.internal:host-gateway"]
+    networks: [stack-net]
+    
+
   # ==================================================
   # Nano Agentit (5 kpl, 1:1 LightRAGien kanssa)
   # ==================================================
@@ -174,6 +207,38 @@ services:
     restart: unless-stopped
     networks: [stack-net]
 
+  agent-6:
+    build: ./agent
+    container_name: nano-agent-6
+    ports: ["9006:9000"]
+    volumes:
+      - ./agent/data/agent6:/data
+    depends_on: [lightrag-nano-6]
+    environment:
+      - AGENT_ID=agent-6
+      - LIGHTRAG_URL=http://lightrag-nano-6:9621/query
+      - ALLOWED_ORIGINS=*
+      - API_KEY=your-secure-api-key-here-marko
+      - BEARER_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc2ODAzNzcxMCwicm9sZSI6InVzZXIiLCJtZXRhZGF0YSI6eyJhdXRoX21vZGUiOiJlbmFibGVkIn19.FKYgpY2zf3ArE66NsoKuKRPskbFr4TpkPibv9Ta0nkE
+    restart: unless-stopped
+    networks: [stack-net]
+
+  agent-7:
+    build: ./agent
+    container_name: nano-agent-7
+    ports: ["9007:9000"]
+    volumes:
+      - ./agent/data/agent7:/data
+    depends_on: [lightrag-nano-7]
+    environment:
+      - AGENT_ID=agent-7
+      - LIGHTRAG_URL=htt p://lightrag-nano-7:9621/query
+      - ALLOWED_ORIGINS=*
+      - API_KEY=your-secure-api-key-here-marko
+      - BEARER_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc2ODAzNzcxMCwicm9sZSI6InVzZXIiLCJtZXRhZGF0YSI6eyJhdXRoX21vZGUiOiJlbmFibGVkIn19.FKYgpY2zf3ArE66NsoKuKRPskbFr4TpkPibv9Ta0nkE
+    restart: unless-stopped
+    networks: [stack-net]
+
   # ==================================================
   # UI:t (kytketty agent-1:een)
   # ==================================================
@@ -189,8 +254,56 @@ services:
   admin-app:
     build: ./apps/admin-app
     container_name: admin-app
-    ports: ["3001:80"]
+    ports: ["3099:80"]
     depends_on: [agent-1]
+    restart: unless-stopped
+    networks: [stack-net]
+
+  enduser-app2:
+    build: ./apps/enduser-app2
+    container_name: enduser-app2
+    ports: ["3002:80"]
+    depends_on: [agent-2]
+    restart: unless-stopped
+    networks: [stack-net]
+
+  enduser-app3:
+    build: ./apps/enduser-app3
+    container_name: enduser-app3
+    ports: ["3003:80"]
+    depends_on: [agent-3]
+    restart: unless-stopped
+    networks: [stack-net]
+
+  enduser-app4:
+    build: ./apps/enduser-app4
+    container_name: enduser-app4
+    ports: ["3004:80"]
+    depends_on: [agent-4]
+    restart: unless-stopped
+    networks: [stack-net]
+
+  enduser-app5:
+    build: ./apps/enduser-app5
+    container_name: enduser-app5
+    ports: ["3005:80"]
+    depends_on: [agent-5]
+    restart: unless-stopped
+    networks: [stack-net]
+
+  enduser-app6:
+    build: ./apps/enduser-app6
+    container_name: enduser-app6
+    ports: ["3006:80"]
+    depends_on: [agent-6]
+    restart: unless-stopped
+    networks: [stack-net]
+
+  enduser-app7:
+    build: ./apps/enduser-app7
+    container_name: enduser-app7
+    ports: ["3007:80"]
+    depends_on: [agent-7]
     restart: unless-stopped
     networks: [stack-net]
 
