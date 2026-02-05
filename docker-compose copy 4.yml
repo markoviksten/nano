@@ -121,6 +121,122 @@ services:
     networks: [stack-net]
 
   # ==================================================
+  # Nano Agentit (7 kpl)
+  # ==================================================
+
+  agent-1:
+    build: ./agent
+    container_name: nano-agent-1
+    ports: ["9001:9000"]
+    volumes:
+      - ./agent/data/agent1:/data
+    depends_on: [lightrag-nano-1]
+    environment:
+      - AGENT_ID=agent-1
+      - LIGHTRAG_URL=http://lightrag-nano-1:9621/query
+      - ALLOWED_ORIGINS=*
+      - API_KEY=your-secure-api-key-here-marko
+      - BEARER_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc2ODI1MzYwMiwicm9sZSI6InVzZXIiLCJtZXRhZGF0YSI6eyJhdXRoX21vZGUiOiJlbmFibGVkIn19.fxKmezvmn8z8eH55kWczgzzXXwplzASyOo5_Y9uoV_k
+    restart: unless-stopped
+    networks: [stack-net]
+
+  agent-2:
+    build: ./agent
+    container_name: nano-agent-2
+    ports: ["9002:9000"]
+    volumes:
+      - ./agent/data/agent2:/data
+    depends_on: [lightrag-nano-2]
+    environment:
+      - AGENT_ID=agent-2
+      - LIGHTRAG_URL=http://lightrag-nano-2:9622/query
+      - ALLOWED_ORIGINS=*
+      - API_KEY=your-secure-api-key-here-marko
+      - BEARER_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc2ODI1MzYwMiwicm9sZSI6InVzZXIiLCJtZXRhZGF0YSI6eyJhdXRoX21vZGUiOiJlbmFibGVkIn19.fxKmezvmn8z8eH55kWczgzzXXwplzASyOo5_Y9uoV_k
+    restart: unless-stopped
+    networks: [stack-net]
+
+  agent-3:
+    build: ./agent
+    container_name: nano-agent-3
+    ports: ["9003:9000"]
+    volumes:
+      - ./agent/data/agent3:/data
+    depends_on: [lightrag-nano-3]
+    environment:
+      - AGENT_ID=agent-3
+      - LIGHTRAG_URL=http://lightrag-nano-3:9623/query
+      - ALLOWED_ORIGINS=*
+      - API_KEY=your-secure-api-key-here-marko
+      - BEARER_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc2ODI1MzYwMiwicm9sZSI6InVzZXIiLCJtZXRhZGF0YSI6eyJhdXRoX21vZGUiOiJlbmFibGVkIn19.fxKmezvmn8z8eH55kWczgzzXXwplzASyOo5_Y9uoV_k
+    restart: unless-stopped
+    networks: [stack-net]
+
+  agent-4:
+    build: ./agent
+    container_name: nano-agent-4
+    ports: ["9004:9000"]
+    volumes:
+      - ./agent/data/agent4:/data
+    depends_on: [lightrag-nano-4]
+    environment:
+      - AGENT_ID=agent-4
+      - LIGHTRAG_URL=http://lightrag-nano-4:9624/query
+      - ALLOWED_ORIGINS=*
+      - API_KEY=your-secure-api-key-here-marko
+      - BEARER_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc2ODI1MzYwMiwicm9sZSI6InVzZXIiLCJtZXRhZGF0YSI6eyJhdXRoX21vZGUiOiJlbmFibGVkIn19.fxKmezvmn8z8eH55kWczgzzXXwplzASyOo5_Y9uoV_k
+    restart: unless-stopped
+    networks: [stack-net]
+
+  agent-5:
+    build: ./agent
+    container_name: nano-agent-5
+    ports: ["9005:9000"]
+    volumes:
+      - ./agent/data/agent5:/data
+    depends_on: [lightrag-nano-5]
+    environment:
+      - AGENT_ID=agent-5
+      - LIGHTRAG_URL=http://lightrag-nano-5:9625/query
+      - ALLOWED_ORIGINS=*
+      - API_KEY=your-secure-api-key-here-marko
+      - BEARER_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc2ODI1MzYwMiwicm9sZSI6InVzZXIiLCJtZXRhZGF0YSI6eyJhdXRoX21vZGUiOiJlbmFibGVkIn19.fxKmezvmn8z8eH55kWczgzzXXwplzASyOo5_Y9uoV_k
+    restart: unless-stopped
+    networks: [stack-net]
+
+  agent-6:
+    build: ./agent
+    container_name: nano-agent-6
+    ports: ["9006:9000"]
+    volumes:
+      - ./agent/data/agent6:/data
+    depends_on: [lightrag-nano-6]
+    environment:
+      - AGENT_ID=agent-6
+      - LIGHTRAG_URL=http://lightrag-nano-6:9626/query
+      - ALLOWED_ORIGINS=*
+      - API_KEY=your-secure-api-key-here-marko
+      - BEARER_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc2ODI1MzYwMiwicm9sZSI6InVzZXIiLCJtZXRhZGF0YSI6eyJhdXRoX21vZGUiOiJlbmFibGVkIn19.fxKmezvmn8z8eH55kWczgzzXXwplzASyOo5_Y9uoV_k
+    restart: unless-stopped
+    networks: [stack-net]
+
+  agent-7:
+    build: ./agent
+    container_name: nano-agent-7
+    ports: ["9007:9000"]
+    volumes:
+      - ./agent/data/agent7:/data
+    depends_on: [lightrag-nano-7]
+    environment:
+      - AGENT_ID=agent-7
+      - LIGHTRAG_URL=http://lightrag-nano-7:9627/query
+      - ALLOWED_ORIGINS=*
+      - API_KEY=your-secure-api-key-here-marko
+      - BEARER_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc2ODI1MzYwMiwicm9sZSI6InVzZXIiLCJtZXRhZGF0YSI6eyJhdXRoX21vZGUiOiJlbmFibGVkIn19.fxKmezvmn8z8eH55kWczgzzXXwplzASyOo5_Y9uoV_k
+    restart: unless-stopped
+    networks: [stack-net]
+
+  # ==================================================
   # UI:t
   # ==================================================
 
@@ -128,6 +244,7 @@ services:
     build: ./apps/enduser-app
     container_name: enduser-app
     ports: ["3000:80"]
+    depends_on: [agent-1]
     restart: unless-stopped
     networks: [stack-net]
 
@@ -135,6 +252,7 @@ services:
     build: ./apps/dolmusai-app
     container_name: dolmusai-app
     ports: ["3333:80"]
+    depends_on: [agent-1]
     restart: unless-stopped
     networks: [stack-net]
 
@@ -142,6 +260,7 @@ services:
     build: ./apps/admin-app
     container_name: admin-app
     ports: ["3099:80"]
+    depends_on: [agent-1]
     restart: unless-stopped
     networks: [stack-net]
 
@@ -149,6 +268,7 @@ services:
     build: ./apps/enduser-app2
     container_name: enduser-app2
     ports: ["3002:80"]
+    depends_on: [agent-2]
     restart: unless-stopped
     networks: [stack-net]
 
@@ -156,6 +276,7 @@ services:
     build: ./apps/enduser-app3
     container_name: enduser-app3
     ports: ["3003:80"]
+    depends_on: [agent-3]
     restart: unless-stopped
     networks: [stack-net]
 
@@ -163,6 +284,7 @@ services:
     build: ./apps/enduser-app4
     container_name: enduser-app4
     ports: ["3004:80"]
+    depends_on: [agent-4]
     restart: unless-stopped
     networks: [stack-net]
 
@@ -170,6 +292,7 @@ services:
     build: ./apps/enduser-app5
     container_name: enduser-app5
     ports: ["3005:80"]
+    depends_on: [agent-5]
     restart: unless-stopped
     networks: [stack-net]
 
@@ -177,6 +300,7 @@ services:
     build: ./apps/enduser-app6
     container_name: enduser-app6
     ports: ["3006:80"]
+    depends_on: [agent-6]
     restart: unless-stopped
     networks: [stack-net]
 
@@ -184,6 +308,7 @@ services:
     build: ./apps/enduser-app7
     container_name: enduser-app7
     ports: ["3007:80"]
+    depends_on: [agent-7]
     restart: unless-stopped
     networks: [stack-net]
 
