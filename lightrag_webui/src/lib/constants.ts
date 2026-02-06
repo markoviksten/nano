@@ -83,7 +83,7 @@ export const supportedFileTypes = {
 }
 
 export const SiteInfo = {
-  name: 'LightRAG',
+  name: import.meta.env.VITE_REBRANDAPP || 'LightRAG',
   home: '/',
   github: 'https://github.com/HKUDS/LightRAG'
 }

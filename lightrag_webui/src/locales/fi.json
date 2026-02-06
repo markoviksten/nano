@@ -1,0 +1,465 @@
+{
+  "settings": {
+    "language": "Kieli",
+    "theme": "Teema",
+    "light": "Vaalea",
+    "dark": "Tumma",
+    "system": "Järjestelmä"
+  },
+  "header": {
+    "documents": "Dokumentit",
+    "knowledgeGraph": "Tietograafi",
+    "retrieval": "Haku",
+    "api": "API",
+    "projectRepository": "Projektin repositorio",
+    "logout": "Kirjaudu ulos",
+    "frontendNeedsRebuild": "Frontend vaatii uudelleenrakennuksen",
+    "themeToggle": {
+      "switchToLight": "Vaihda vaaleaan teemaan",
+      "switchToDark": "Vaihda tummaan teemaan"
+    }
+  },
+  "login": {
+    "description": "Kirjaudu sisään syöttämällä käyttäjätunnuksesi ja salasanasi",
+    "username": "Käyttäjätunnus",
+    "usernamePlaceholder": "Syötä käyttäjätunnus",
+    "password": "Salasana",
+    "passwordPlaceholder": "Syötä salasana",
+    "loginButton": "Kirjaudu",
+    "loggingIn": "Kirjaudutaan...",
+    "successMessage": "Kirjautuminen onnistui",
+    "errorEmptyFields": "Syötä käyttäjätunnus ja salasana",
+    "errorInvalidCredentials": "Kirjautuminen epäonnistui, tarkista käyttäjätunnus ja salasana",
+    "authDisabled": "Autentikointi on poistettu käytöstä. Käytetään vierastilaa.",
+    "guestMode": "Vierastila"
+  },
+  "common": {
+    "cancel": "Peruuta",
+    "save": "Tallenna",
+    "saving": "Tallennetaan...",
+    "saveFailed": "Tallennus epäonnistui"
+  },
+  "documentPanel": {
+    "clearDocuments": {
+      "button": "Tyhjennä",
+      "tooltip": "Tyhjennä dokumentit",
+      "title": "Tyhjennä dokumentit",
+      "description": "Tämä poistaa kaikki dokumentit järjestelmästä",
+      "warning": "VAROITUS: Tämä toiminto poistaa pysyvästi kaikki dokumentit eikä sitä voi perua!",
+      "confirm": "Haluatko varmasti tyhjentää kaikki dokumentit?",
+      "confirmPrompt": "Kirjoita 'yes' vahvistaaksesi toiminnon",
+      "confirmPlaceholder": "Kirjoita yes vahvistaaksesi",
+      "clearCache": "Tyhjennä LLM-välimuisti",
+      "confirmButton": "KYLLÄ",
+      "clearing": "Tyhjennetään...",
+      "timeout": "Tyhjennys aikakatkaistiin, yritä uudelleen",
+      "success": "Dokumentit tyhjennetty onnistuneesti",
+      "cacheCleared": "Välimuisti tyhjennetty onnistuneesti",
+      "cacheClearFailed": "Välimuistin tyhjennys epäonnistui:\n{{error}}",
+      "failed": "Dokumenttien tyhjennys epäonnistui:\n{{message}}",
+      "error": "Dokumenttien tyhjennys epäonnistui:\n{{error}}"
+    },
+    "deleteDocuments": {
+      "button": "Poista",
+      "tooltip": "Poista valitut dokumentit",
+      "title": "Poista dokumentit",
+      "description": "Tämä poistaa pysyvästi valitut dokumentit järjestelmästä",
+      "warning": "VAROITUS: Tämä toiminto poistaa pysyvästi valitut dokumentit eikä sitä voi perua!",
+      "confirm": "Haluatko varmasti poistaa {{count}} valittua dokumenttia?",
+      "confirmPrompt": "Kirjoita 'yes' vahvistaaksesi toiminnon",
+      "confirmPlaceholder": "Kirjoita yes vahvistaaksesi",
+      "confirmButton": "KYLLÄ",
+      "deleteFileOption": "Poista myös ladatut tiedostot",
+      "deleteFileTooltip": "Valitse tämä vaihtoehto poistaaksesi myös vastaavat ladatut tiedostot palvelimelta",
+      "deleteLLMCacheOption": "Poista myös purettu LLM-välimuisti",
+      "success": "Dokumenttien poisto-operaatio käynnistetty onnistuneesti",
+      "failed": "Dokumenttien poisto epäonnistui:\n{{message}}",
+      "error": "Dokumenttien poisto epäonnistui:\n{{error}}",
+      "busy": "Prosessi on käytössä, yritä myöhemmin uudelleen",
+      "notAllowed": "Ei oikeutta suorittaa tätä toimintoa"
+    },
+    "selectDocuments": {
+      "selectCurrentPage": "Valitse nykyinen sivu ({{count}})",
+      "deselectAll": "Poista kaikki valinnat ({{count}})"
+    },
+    "uploadDocuments": {
+      "button": "Lataa",
+      "tooltip": "Lataa dokumentteja",
+      "title": "Lataa dokumentteja",
+      "description": "Vedä ja pudota dokumenttisi tähän tai klikkaa selataksesi.",
+      "single": {
+        "uploading": "Ladataan {{name}}: {{percent}}%",
+        "success": "Lataus onnistui:\n{{name}} ladattu onnistuneesti",
+        "failed": "Lataus epäonnistui:\n{{name}}\n{{message}}",
+        "error": "Lataus epäonnistui:\n{{name}}\n{{error}}"
+      },
+      "batch": {
+        "uploading": "Ladataan tiedostoja...",
+        "success": "Tiedostot ladattu onnistuneesti",
+        "error": "Joidenkin tiedostojen lataus epäonnistui"
+      },
+      "generalError": "Lataus epäonnistui\n{{error}}",
+      "fileTypes": "Tuetut tyypit: TXT, MD, DOCX, PDF, PPTX, XLSX, RTF, ODT, EPUB, HTML, HTM, TEX, JSON, XML, YAML, YML, CSV, LOG, CONF, INI, PROPERTIES, SQL, BAT, SH, C, CPP, PY, JAVA, JS, TS, SWIFT, GO, RB, PHP, CSS, SCSS, LESS",
+      "fileUploader": {
+        "singleFileLimit": "Voit ladata vain yhden tiedoston kerrallaan",
+        "maxFilesLimit": "Voit ladata enintään {{count}} tiedostoa",
+        "fileRejected": "Tiedosto {{name}} hylättiin",
+        "unsupportedType": "Tiedostotyyppiä ei tueta",
+        "fileTooLarge": "Tiedosto liian suuri, maksimikoko on {{maxSize}}",
+        "dropHere": "Pudota tiedostot tähän",
+        "dragAndDrop": "Vedä ja pudota tiedostoja tähän tai klikkaa valitaksesi tiedostoja",
+        "removeFile": "Poista tiedosto",
+        "uploadDescription": "Voit ladata {{isMultiple ? 'useita' : count}} tiedostoja (enintään {{maxSize}} kukin)",
+        "duplicateFile": "Tiedostonimi on jo olemassa palvelimen välimuistissa"
+      }
+    },
+    "documentManager": {
+      "title": "Dokumenttien hallinta",
+      "scanButton": "Skannaa/Yritä uudelleen",
+      "scanTooltip": "Skannaa ja käsittele dokumentit syötekansiosta, ja käsittele myös kaikki epäonnistuneet dokumentit uudelleen",
+      "refreshTooltip": "Nollaa dokumenttiluettelo",
+      "pipelineStatusButton": "Prosessi",
+      "pipelineStatusTooltip": "Näytä dokumenttien käsittelyprosessin tila",
+      "uploadedTitle": "Ladatut dokumentit",
+      "uploadedDescription": "Luettelo ladatuista dokumenteista ja niiden tiloista.",
+      "emptyTitle": "Ei dokumentteja",
+      "emptyDescription": "Ladattuja dokumentteja ei ole vielä.",
+      "columns": {
+        "id": "ID",
+        "fileName": "Tiedostonimi",
+        "summary": "Yhteenveto",
+        "status": "Tila",
+        "length": "Pituus",
+        "chunks": "Palaset",
+        "created": "Luotu",
+        "updated": "Päivitetty",
+        "metadata": "Metatiedot",
+        "select": "Valitse"
+      },
+      "status": {
+        "all": "Kaikki",
+        "completed": "Valmis",
+        "preprocessed": "Esikäsitelty",
+        "processing": "Käsitellään",
+        "pending": "Odottaa",
+        "failed": "Epäonnistui"
+      },
+      "errors": {
+        "loadFailed": "Dokumenttien lataus epäonnistui\n{{error}}",
+        "scanFailed": "Dokumenttien skannaus epäonnistui\n{{error}}",
+        "scanProgressFailed": "Skannauksen edistymisen haku epäonnistui\n{{error}}"
+      },
+      "fileNameLabel": "Tiedostonimi",
+      "showButton": "Näytä",
+      "hideButton": "Piilota",
+      "showFileNameTooltip": "Näytä tiedostonimi",
+      "hideFileNameTooltip": "Piilota tiedostonimi"
+    },
+    "pipelineStatus": {
+      "title": "Prosessin tila",
+      "busy": "Prosessi käynnissä",
+      "requestPending": "Pyyntö odottaa",
+      "cancellationRequested": "Peruutus pyydetty",
+      "jobName": "Työn nimi",
+      "startTime": "Aloitusaika",
+      "progress": "Edistyminen",
+      "unit": "Erä",
+      "pipelineMessages": "Prosessiviestit",
+      "cancelButton": "Peruuta",
+      "cancelTooltip": "Peruuta prosessin käsittely",
+      "cancelConfirmTitle": "Vahvista prosessin peruutus",
+      "cancelConfirmDescription": "Tämä keskeyttää käynnissä olevan prosessin käsittelyn. Oletko varma että haluat jatkaa?",
+      "cancelConfirmButton": "Vahvista peruutus",
+      "cancelInProgress": "Peruutus käynnissä...",
+      "pipelineNotRunning": "Prosessi ei ole käynnissä",
+      "cancelSuccess": "Prosessin peruutus pyydetty",
+      "cancelFailed": "Prosessin peruutus epäonnistui\n{{error}}",
+      "cancelNotBusy": "Prosessi ei ole käynnissä, ei tarvetta peruuttaa",
+      "errors": {
+        "fetchFailed": "Prosessin tilan haku epäonnistui\n{{error}}"
+      }
+    }
+  },
+  "graphPanel": {
+    "dataIsTruncated": "Graafin data on katkaistu maksimi solmujen määrään",
+    "statusDialog": {
+      "title": "LightRAG-palvelimen asetukset",
+      "description": "Näytä järjestelmän nykyinen tila ja yhteystiedot"
+    },
+    "legend": "Selite",
+    "nodeTypes": {
+      "person": "Henkilö",
+      "category": "Kategoria",
+      "geo": "Maantieteellinen",
+      "location": "Sijainti",
+      "organization": "Organisaatio",
+      "event": "Tapahtuma",
+      "equipment": "Laitteisto",
+      "weapon": "Ase",
+      "animal": "Eläin",
+      "unknown": "Tuntematon",
+      "object": "Objekti",
+      "group": "Ryhmä",
+      "technology": "Teknologia",
+      "product": "Tuote",
+      "document": "Dokumentti",
+      "content": "Sisältö",
+      "data": "Data",
+      "artifact": "Artefakti",
+      "concept": "Käsite",
+      "naturalobject": "Luonnonobjekti",
+      "method": "Menetelmä",
+      "creature": "Olento",
+      "plant": "Kasvi",
+      "disease": "Sairaus",
+      "drug": "Lääke",
+      "food": "Ruoka",
+      "other": "Muu"
+    },
+    "sideBar": {
+      "settings": {
+        "settings": "Asetukset",
+        "healthCheck": "Terveystarkistus",
+        "showPropertyPanel": "Näytä ominaisuuspaneeli",
+        "showSearchBar": "Näytä hakupalkki",
+        "showNodeLabel": "Näytä solmun nimi",
+        "nodeDraggable": "Solmu vedettävissä",
+        "showEdgeLabel": "Näytä linkin nimi",
+        "hideUnselectedEdges": "Piilota valitsemattomat linkit",
+        "edgeEvents": "Linkkitapahtumat",
+        "maxQueryDepth": "Maksimi hakusyvyys",
+        "maxNodes": "Maksimi solmut",
+        "maxLayoutIterations": "Maksimi asetteluiteraaiot",
+        "resetToDefault": "Palauta oletusarvot",
+        "edgeSizeRange": "Linkin kokoalue",
+        "depth": "S",
+        "max": "Maks",
+        "degree": "Aste",
+        "apiKey": "API-avain",
+        "enterYourAPIkey": "Syötä API-avaimesi",
+        "save": "Tallenna",
+        "refreshLayout": "Päivitä asettelu"
+      },
+      "zoomControl": {
+        "zoomIn": "Lähennä",
+        "zoomOut": "Loitonna",
+        "resetZoom": "Nollaa zoomaus",
+        "rotateCamera": "Kierrä myötäpäivään",
+        "rotateCameraCounterClockwise": "Kierrä vastapäivään"
+      },
+      "layoutsControl": {
+        "startAnimation": "Jatka asetteluanimaatiota",
+        "stopAnimation": "Pysäytä asetteluanimaatio",
+        "layoutGraph": "Asettelun graafi",
+        "layouts": {
+          "Circular": "Pyöreä",
+          "Circlepack": "Ympyräpakkaus",
+          "Random": "Satunnainen",
+          "Noverlaps": "Ei päällekkäisyyksiä",
+          "Force Directed": "Voimaohjattu",
+          "Force Atlas": "Force Atlas"
+        }
+      },
+      "fullScreenControl": {
+        "fullScreen": "Koko näyttö",
+        "windowed": "Ikkunoitu"
+      },
+      "legendControl": {
+        "toggleLegend": "Vaihda selitettä"
+      }
+    },
+    "statusIndicator": {
+      "connected": "Yhdistetty",
+      "disconnected": "Yhteys katkaistu"
+    },
+    "statusCard": {
+      "unavailable": "Tilatiedot eivät saatavilla",
+      "serverInfo": "Palvelimen tiedot",
+      "workingDirectory": "Työhakemisto",
+      "inputDirectory": "Syötehakemisto",
+      "maxParallelInsert": "Rinnakkainen dokumenttikäsittely",
+      "summarySettings": "Yhteenvetoasetukset",
+      "llmConfig": "LLM-konfiguraatio",
+      "llmBinding": "LLM-sidonta",
+      "llmBindingHost": "LLM-päätepiste",
+      "llmModel": "LLM-malli",
+      "embeddingConfig": "Upotuskonfiguraatio",
+      "embeddingBinding": "Upotussidonta",
+      "embeddingBindingHost": "Upotuspäätepiste",
+      "embeddingModel": "Upotusmalli",
+      "storageConfig": "Tallennuskonfiguraatio",
+      "kvStorage": "KV-tallennus",
+      "docStatusStorage": "Dokumenttitilojen tallennus",
+      "graphStorage": "Graafin tallennus",
+      "vectorStorage": "Vektoritallennus",
+      "workspace": "Työtila",
+      "maxGraphNodes": "Maksimi graafin solmut",
+      "rerankerConfig": "Uudelleenrankauskonfiguraatio",
+      "rerankerBindingHost": "Uudelleenrankauspäätepiste",
+      "rerankerModel": "Uudelleenrankausmalli",
+      "lockStatus": "Lukitustila",
+      "threshold": "Kynnysarvo"
+    },
+    "propertiesView": {
+      "editProperty": "Muokkaa {{property}}",
+      "editPropertyDescription": "Muokkaa ominaisuuden arvoa alla olevassa tekstikentässä.",
+      "errors": {
+        "duplicateName": "Solmun nimi on jo olemassa",
+        "updateFailed": "Solmun päivitys epäonnistui",
+        "tryAgainLater": "Yritä myöhemmin uudelleen",
+        "updateSuccessButMergeFailed": "Ominaisuudet päivitetty, mutta yhdistäminen epäonnistui: {{error}}",
+        "mergeFailed": "Yhdistäminen epäonnistui: {{error}}"
+      },
+      "success": {
+        "entityUpdated": "Solmu päivitetty onnistuneesti",
+        "relationUpdated": "Relaatio päivitetty onnistuneesti",
+        "entityMerged": "Solmut yhdistetty onnistuneesti"
+      },
+      "mergeOptionLabel": "Yhdistä automaattisesti kun löytyy duplikaattinimi",
+      "mergeOptionDescription": "Jos käytössä, uudelleennimeäminen olemassa olevaan nimeen yhdistää tämän solmun olemassa olevaan sen sijaan että epäonnistuisi.",
+      "mergeDialog": {
+        "title": "Solmu yhdistetty",
+        "description": "\"{{source}}\" on yhdistetty kohteeseen \"{{target}}\".",
+        "refreshHint": "Päivitä graafi ladataksesi uusimman rakenteen.",
+        "keepCurrentStart": "Päivitä ja säilytä nykyinen aloitussolmu",
+        "useMergedStart": "Päivitä ja käytä yhdistettyä solmua",
+        "refreshing": "Päivitetään graafia..."
+      },
+      "node": {
+        "title": "Solmu",
+        "id": "ID",
+        "labels": "Tunnisteet",
+        "degree": "Aste",
+        "properties": "Ominaisuudet",
+        "relationships": "Relaatiot (aligraafissa)",
+        "expandNode": "Laajenna solmu",
+        "pruneNode": "Karsii solmu",
+        "deleteAllNodesError": "Kaikkien solmujen poistaminen graafista evätty",
+        "nodesRemoved": "{{count}} solmua poistettu, mukaan lukien orposolmut",
+        "noNewNodes": "Laajennettavia solmuja ei löytynyt",
+        "propertyNames": {
+          "description": "Kuvaus",
+          "entity_id": "Nimi",
+          "entity_type": "Tyyppi",
+          "source_id": "C-ID",
+          "Neighbour": "Naapuri",
+          "file_path": "Tiedosto",
+          "keywords": "Avainsanat",
+          "weight": "Paino"
+        }
+      },
+      "edge": {
+        "title": "Relaatio",
+        "id": "ID",
+        "type": "Tyyppi",
+        "source": "Lähde",
+        "target": "Kohde",
+        "properties": "Ominaisuudet"
+      }
+    },
+    "search": {
+      "placeholder": "Etsi solmuja sivulta...",
+      "message": "Ja {{count}} muuta"
+    },
+    "graphLabels": {
+      "selectTooltip": "Hae solmun (tunnisteen) aligraafi",
+      "noLabels": "Vastaavia solmuja ei löytynyt",
+      "label": "Etsi solmun nimi",
+      "placeholder": "Etsi solmun nimi...",
+      "andOthers": "Ja {{count}} muuta",
+      "refreshGlobalTooltip": "Päivitä globaali graafin data ja nollaa hakuhistoria",
+      "refreshCurrentLabelTooltip": "Päivitä nykyisen sivun graafin data",
+      "refreshingTooltip": "Päivitetään dataa..."
+    },
+    "emptyGraph": "Tyhjä (Yritä ladata uudelleen)"
+  },
+  "retrievePanel": {
+    "chatMessage": {
+      "copyTooltip": "Kopioi leikepöydälle",
+      "copyError": "Tekstin kopiointi leikepöydälle epäonnistui",
+      "copyEmpty": "Ei kopioitavaa sisältöä",
+      "copySuccess": "Sisältö kopioitu leikepöydälle",
+      "copySuccessLegacy": "Sisältö kopioitu (vanha menetelmä)",
+      "copySuccessManual": "Sisältö kopioitu (manuaalinen menetelmä)",
+      "copyFailed": "Sisällön kopiointi epäonnistui",
+      "copyManualInstruction": "Ole hyvä ja valitse ja kopioi teksti manuaalisesti",
+      "thinking": "Ajattelee...",
+      "thinkingTime": "Ajatteluaika {{time}}s",
+      "thinkingInProgress": "Ajattelu käynnissä..."
+    },
+    "retrieval": {
+      "startPrompt": "Aloita haku kirjoittamalla kyselysi alle",
+      "clear": "Tyhjennä",
+      "send": "Lähetä",
+      "placeholder": "Syötä kyselysi (Tukee etuliitettä: /<Hakutila>)",
+      "error": "Virhe: Vastauksen haku epäonnistui",
+      "queryModeError": "Tukee vain seuraavia hakutiloja: {{modes}}",
+      "queryModePrefixInvalid": "Virheellinen hakutilan etuliite. Käytä: /<tila> [välilyönti] kyselysi"
+    },
+    "querySettings": {
+      "parametersTitle": "Parametrit",
+      "parametersDescription": "Määritä kyselyparametrisi",
+      "queryMode": "Hakutila",
+      "queryModeTooltip": "Valitse hakustrategia:\n• Naive: Perinteinen tekstipalan vektorihaku\n• Local: Keskittyy entiteettihakuun\n• Global: Keskittyy relaatiohakuun\n• Hybrid: Local+Global\n• Mix: Local+Global+Naive\n• Bypass: Ohita haku, lähetä keskusteluhistoria ja nykyinen kysymys LLM:lle",
+      "queryModeOptions": {
+        "naive": "Naive",
+        "local": "Paikallinen",
+        "global": "Globaali",
+        "hybrid": "Hybridi",
+        "mix": "Sekoitus",
+        "bypass": "Ohitus"
+      },
+      "responseFormat": "Vastausmuoto",
+      "responseFormatTooltip": "Määrittelee vastauksen muodon. Esimerkkejä:\n• Useita kappaleita\n• Yksi kappale\n• Luettelomerkit",
+      "responseFormatOptions": {
+        "multipleParagraphs": "Useita kappaleita",
+        "singleParagraph": "Yksi kappale",
+        "bulletPoints": "Luettelomerkit"
+      },
+      "topK": "KG Top K",
+      "topKTooltip": "Haettavien entiteettien ja relaatioiden määrä. Soveltuu ei-naiiville tiloille.",
+      "topKPlaceholder": "Syötä top_k arvo",
+      "chunkTopK": "Palan Top K",
+      "chunkTopKTooltip": "Haettavien tekstipalojen määrä, soveltuu kaikille tiloille.",
+      "chunkTopKPlaceholder": "Syötä chunk_top_k arvo",
+      "maxEntityTokens": "Maksimi entiteettitokenit",
+      "maxEntityTokensTooltip": "Maksimimäärä tokeneita jotka varataan entiteettikontekstille yhtenäisessä tokeninhallintajärjestelmässä",
+      "maxRelationTokens": "Maksimi relaatiotokenit",
+      "maxRelationTokensTooltip": "Maksimimäärä tokeneita jotka varataan relaatiokontekstille yhtenäisessä tokeninhallintajärjestelmässä",
+      "maxTotalTokens": "Maksimi tokenit yhteensä",
+      "maxTotalTokensTooltip": "Maksimi tokenibudjetti koko kyselykontekstille (entiteetit + relaatiot + palat + järjestelmäkehote)",
+      "historyTurns": "Historian kierrokset",
+      "historyTurnsTooltip": "Täydellisten keskustelukierrosten (käyttäjä-assistentti -parit) määrä jotka huomioidaan vastauskontekstissa",
+      "historyTurnsPlaceholder": "Historiakierrosten määrä",
+      "onlyNeedContext": "Vain konteksti tarvitaan",
+      "onlyNeedContextTooltip": "Jos True, palauttaa vain haetun kontekstin ilman vastauksen generointia",
+      "onlyNeedPrompt": "Vain kehote tarvitaan",
+      "onlyNeedPromptTooltip": "Jos True, palauttaa vain generoidun kehotteen ilman vastauksen tuottamista",
+      "streamResponse": "Suoratoista vastaus",
+      "streamResponseTooltip": "Jos True, mahdollistaa suoratoiston reaaliaikaisille vastauksille",
+      "userPrompt": "Lisäkehote tulosteelle",
+      "userPromptTooltip": "Anna lisävaatimuksia LLM:lle vastausta varten (ei liity kyselyyn, vain tulosteen käsittelyyn).",
+      "userPromptPlaceholder": "Syötä mukautettu kehote (valinnainen)",
+      "enableRerank": "Ota uudelleenrankaus käyttöön",
+      "enableRerankTooltip": "Ota uudelleenrankaus käyttöön haetuille tekstipaloille. Jos True mutta uudelleenrankausmallia ei ole määritetty, annetaan varoitus. Oletus on True."
+    }
+  },
+  "apiSite": {
+    "loading": "Ladataan API-dokumentaatiota..."
+  },
+  "apiKeyAlert": {
+    "title": "API-avain vaaditaan",
+    "description": "Syötä API-avaimesi päästäksesi palveluun",
+    "placeholder": "Syötä API-avaimesi",
+    "save": "Tallenna"
+  },
+  "pagination": {
+    "showing": "Näytetään {{start}} - {{end}} / {{total}} merkintää",
+    "page": "Sivu",
+    "pageSize": "Sivun koko",
+    "firstPage": "Ensimmäinen sivu",
+    "prevPage": "Edellinen sivu",
+    "nextPage": "Seuraava sivu",
+    "lastPage": "Viimeinen sivu"
+  }
+}

@@ -17,18 +17,22 @@ interface NavigationTabProps {
 }
 
 function NavigationTab({ value, currentTab, children }: NavigationTabProps) {
+  const activeColor = import.meta.env.VITE_REBRANDCOL || '#10b981'
+  
   return (
     <TabsTrigger
       value={value}
       className={cn(
         'cursor-pointer px-2 py-1 transition-all',
-        currentTab === value ? '!bg-emerald-400 !text-zinc-50' : 'hover:bg-background/60'
+        currentTab === value ? '!text-zinc-50' : 'hover:bg-background/60'
       )}
+      style={currentTab === value ? { backgroundColor: activeColor } : undefined}
     >
       {children}
     </TabsTrigger>
   )
 }
+
 
 function TabsNavigation() {
   const currentTab = useSettingsStore.use.currentTab()
@@ -57,7 +61,6 @@ function TabsNavigation() {
 export default function SiteHeader() {
   const { t } = useTranslation()
   const { isGuestMode, coreVersion, apiVersion, username, webuiTitle, webuiDescription } = useAuthStore()
-
   const versionDisplay = (coreVersion && apiVersion)
     ? `${coreVersion}/${apiVersion}`
     : null;
@@ -76,8 +79,8 @@ export default function SiteHeader() {
     <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex h-10 w-full border-b px-4 backdrop-blur">
       <div className="min-w-[200px] w-auto flex items-center">
         <a href={webuiPrefix} className="flex items-center gap-2">
-          <ZapIcon className="size-4 text-emerald-400" aria-hidden="true" />
-          <span className="font-bold md:inline-block">{SiteInfo.name}</span>
+          <img src="knowledge-graph-col.png" alt="Logo" className="h-5 w-5" />
+          <span className="font-bold text-lg md:inline-block">{SiteInfo.name}</span>
         </a>
         {webuiTitle && (
           <div className="flex items-center">
@@ -85,7 +88,7 @@ export default function SiteHeader() {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <span className="font-medium text-sm cursor-default">
+                  <span className="font-medium text-[10px] cursor-default">
                     {webuiTitle}
                   </span>
                 </TooltipTrigger>
@@ -125,11 +128,6 @@ export default function SiteHeader() {
               </Tooltip>
             </TooltipProvider>
           )}
-          <Button variant="ghost" size="icon" side="bottom" tooltip={t('header.projectRepository')}>
-            <a href={SiteInfo.github} target="_blank" rel="noopener noreferrer">
-              <GithubIcon className="size-4" aria-hidden="true" />
-            </a>
-          </Button>
           <AppSettings />
           {!isGuestMode && (
             <Button
