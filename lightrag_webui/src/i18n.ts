@@ -11,6 +11,7 @@ import ru from './locales/ru.json'
 import ja from './locales/ja.json'
 import de from './locales/de.json'
 import uk from './locales/uk.json'
+import fi from './locales/fi.json'  // Lisää tämä rivi
 
 const getStoredLanguage = () => {
   try {
@@ -30,6 +31,7 @@ i18n
   .init({
     resources: {
       en: { translation: en },
+      fi: { translation: fi },  // Lisää tämä rivi
       zh: { translation: zh },
       fr: { translation: fr },
       ar: { translation: ar },

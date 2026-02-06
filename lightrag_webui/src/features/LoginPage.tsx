@@ -10,6 +10,7 @@ import Input from '@/components/ui/Input'
 import Button from '@/components/ui/Button'
 import { ZapIcon } from 'lucide-react'
 import AppSettings from '@/components/AppSettings'
+import { SiteInfo } from '@/lib/constants'  // ← LISÄÄ TÄMÄ RIVI
 
 const LoginPage = () => {
   const navigate = useNavigate()
@@ -153,11 +154,10 @@ const LoginPage = () => {
         <CardHeader className="flex items-center justify-center space-y-2 pb-8 pt-6">
           <div className="flex flex-col items-center space-y-4">
             <div className="flex items-center gap-3">
-              <img src="logo.svg" alt="LightRAG Logo" className="h-12 w-12" />
-              <ZapIcon className="size-10 text-emerald-400" aria-hidden="true" />
+              <img src="knowledge-graph-col.png" alt="Logo" className="h-12 w-12" />
             </div>
             <div className="text-center space-y-2">
-              <h1 className="text-3xl font-bold tracking-tight">LightRAG</h1>
+              <h1 className="text-3xl font-bold tracking-tight">{SiteInfo.name}</h1>
               <p className="text-muted-foreground text-sm">
                 {t('login.description')}
               </p>

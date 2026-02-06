@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import path from 'path'
-import { webuiPrefix } from '@/lib/constants'
+// Poista tämä rivi:
+// import { webuiPrefix } from '@/lib/constants'
 import react from '@vitejs/plugin-react-swc'
 import tailwindcss from '@tailwindcss/vite'
 
@@ -15,8 +16,8 @@ export default defineConfig({
     // This ensures mhchem extension registered in main.tsx is available to rehype-katex
     dedupe: ['katex']
   },
-  // base: import.meta.env.VITE_BASE_URL || '/webui/',
-  base: webuiPrefix,
+  // Käytä suoraan arvoa sen sijaan että importtaat:
+  base: '/webui/',  // ← Kovakoodattu arvo
   build: {
     outDir: path.resolve(__dirname, '../lightrag/api/webui'),
     emptyOutDir: true,
