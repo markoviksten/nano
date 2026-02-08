@@ -1,1 +1,7 @@
-pip install litellm
+litellm
+streamlit
+networkx
+pyvis
+python-louvain
+pandas
+numpy

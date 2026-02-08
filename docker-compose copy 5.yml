@@ -194,37 +194,6 @@ services:
     restart: unless-stopped
     networks: [stack-net]
 
-  # ==================================================
-  # LightRAG 3D Visualizer
-  # ==================================================
-
-  lightrag-visualizer:
-    build:
-      context: .
-      dockerfile: Dockerfile.visualizer
-    container_name: lightrag-visualizer
-    ports:
-      - "8501:8501"
-    volumes:
-      # Mountataan kaikkien nano-instanssien rag_storage read-only
-      - ./data/nano1/rag_storage:/data/nano1:ro
-      - ./data/nano2/rag_storage:/data/nano2:ro
-      - ./data/nano3/rag_storage:/data/nano3:ro
-      - ./data/nano4/rag_storage:/data/nano4:ro
-      - ./data/nano5/rag_storage:/data/nano5:ro
-      - ./data/nano6/rag_storage:/data/nano6:ro
-      - ./data/nano7/rag_storage:/data/nano7:ro
-    restart: unless-stopped
-    networks: [stack-net]
-    depends_on:
-      - lightrag-nano-1
-      - lightrag-nano-2
-      - lightrag-nano-3
-      - lightrag-nano-4
-      - lightrag-nano-5
-      - lightrag-nano-6
-      - lightrag-nano-7
-
 networks:
   stack-net:
     driver: bridge

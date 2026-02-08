@@ -1,0 +1,25 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# Asenna vain tarvittavat paketit (EI imgui_bundlea, EI Tkinteriä)
+RUN pip install --no-cache-dir \
+    streamlit==1.32.0 \
+    pyvis==0.3.2 \
+    networkx==3.2.1 \
+    pandas==2.2.0 \
+    numpy==1.26.3 \
+    python-louvain
+
+# Kopioi yksinkertainen visualizer
+COPY simple_visualizer.py /app/simple_visualizer.py
+
+# Aseta Streamlit-asetukset
+ENV STREAMLIT_SERVER_PORT=8501
+ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
+ENV STREAMLIT_SERVER_HEADLESS=true
+
+EXPOSE 8501
+
+# Käynnistä yksinkertainen visualizer
+CMD ["python", "-m", "streamlit", "run", "simple_visualizer.py", "--server.port=8501", "--server.address=0.0.0.0"]
